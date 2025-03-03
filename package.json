@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.12.1",
+    "@clerk/nextjs": "^6.12.2",
     "@prisma/client": "^6.4.1",
+    "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.2",
     "ai_form_generator": "file:",
     "class-variance-authority": "^0.7.1",
