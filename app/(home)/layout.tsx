@@ -10,7 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         {/* Navbar */}
         <nav className="flex items-center justify-between max-w-7xl mx-auto py-2">
           <Logo />
-          <div>
+          <div className="flex items-center gap-2">
             <Button variant={"link"}>Dashboard</Button>
             <UserButton />
           </div>
