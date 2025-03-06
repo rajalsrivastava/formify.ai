@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import { PricingPlan, pricingPlan } from "@/lib/pricingplan";
+import { PricingPlan, pricingPlan } from "@/lib/pricingPlan";
 import { Badge } from "./ui/badge";
 
 const PricingPage = () => {
@@ -30,7 +30,7 @@ const PricingPage = () => {
             <CardHeader className="flex flex-row items-center gap-2">
               <CardTitle>{plan.level}</CardTitle>
               {plan.level === "Pro" && (
-                <Badge className="rounded-full bg-orange-600 hover:bg-null">
+                <Badge className="rounded-full bg-orange-600">
                   🔥 Popular
                 </Badge>
               )}
@@ -50,7 +50,7 @@ const PricingPage = () => {
               <Button
                 variant="outline"
                 className={`${
-                  plan.level === "Enterprise" && "text-black"
+                  plan.level === "Enterprise" && "text-black dark:text-white"
                 } w-full`}
               >
                 Get started with {plan.level}

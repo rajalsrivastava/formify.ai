@@ -2,6 +2,7 @@ import { DarkMode } from "@/components/DarkMode";
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
@@ -12,9 +13,12 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <nav className="flex items-center justify-between max-w-7xl mx-auto py-2">
           <Logo />
           <div className="flex items-center gap-2">
-            <Button variant={"link"}>Dashboard</Button>
+            <Link href={"/dashboard/analytics"}>
+              {" "}
+              <Button variant={"link"}>Dashboard</Button>
+            </Link>
             <UserButton />
-            <DarkMode/>
+            <DarkMode />
           </div>
         </nav>
       </div>
