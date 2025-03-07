@@ -65,7 +65,7 @@ const SubmitButton = () => {
   return (
     <Button
       disabled={pending}
-      className="h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300"
+      className="h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300 cursor-pointer"
     >
       <Sparkles className="mr-2" />
       {pending ? <span>Generating form...</span> : "Generate Form"}

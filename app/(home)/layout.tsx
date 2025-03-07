@@ -15,7 +15,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex items-center gap-2">
             <Link href={"/dashboard/analytics"}>
               {" "}
-              <Button variant={"link"}>Dashboard</Button>
+              <Button variant={"link"} className="cursor-pointer">Dashboard</Button>
             </Link>
             <UserButton />
             <DarkMode />

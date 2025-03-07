@@ -43,7 +43,7 @@ const HeroSection = () => {
       <GenerateFormInput text={text}/>
       <div className="grid grid-cols-4 gap-3">
         {suggestionBtnText.map((item: SuggestionText, index: number) => (
-          <Button onClick={() => setText(item.text)} key={index} className="rounded-full h-10" variant="outline">
+          <Button onClick={() => setText(item.text)} key={index} className="rounded-full h-10 cursor-pointer" variant="outline">
             {item.label}
           </Button>
         ))}

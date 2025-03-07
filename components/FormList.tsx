@@ -35,14 +35,14 @@ const FormList : React.FC<Props> = ({form}) => {
           <CardContent>
             <Link href={`/dashboard/forms/${form.id}/submissions`}>
               {" "}
-              <Button variant={'link'} className="text-blue-600">Submissions - {form.submission}</Button>
+              <Button variant={'link'} className="text-blue-600 cursor-pointer">Submissions - {form.submission}</Button>
             </Link>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <Button variant="outline">
+            <Button className="cursor-pointer" variant="outline">
               <Edit2 /> Edit
             </Button>
-            <Button onClick={()=>deleteFormHandler(form.id)} variant="destructive">Delete</Button>
+            <Button className="cursor-pointer" onClick={()=>deleteFormHandler(form.id)} variant="destructive">Delete</Button>
           </CardFooter>
         </Card>
       </div>

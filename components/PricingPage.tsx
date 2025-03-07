@@ -51,7 +51,7 @@ const PricingPage = () => {
                 variant="outline"
                 className={`${
                   plan.level === "Enterprise" && "text-black dark:text-white"
-                } w-full`}
+                } w-full cursor-pointer`}
               >
                 Get started with {plan.level}
               </Button>
