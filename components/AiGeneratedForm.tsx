@@ -6,13 +6,21 @@ import { Button } from "./ui/button";
 import { publishForm } from "@/actions/publishForm";
 import FormPublisDialog from "./FormPublisDialog";
 import { Fields, Form } from "@/types/form";
+import toast from "react-hot-toast";
+import { submitForm } from "@/actions/submitForm";
 
 type Props = {
-  form: Form ;
+  form: Form;
   isEditMode: boolean;
 };
 const AiGeneratedForm: React.FC<Props> = ({ form, isEditMode }) => {
   const [successDialogOpen, setSuccessDialogOpen] = useState<boolean>(false);
+  const [formData, setFormData] = useState<any>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handlePublish = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +32,16 @@ const AiGeneratedForm: React.FC<Props> = ({ form, isEditMode }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const data = await submitForm(form.id, formData);
+
+    if (data?.success) {
+      toast.success(data.message);
+      setFormData({});
+    }
+
+    if (!data?.success) {
+      toast.error(data?.message);
+    }
   };
 
   return (
@@ -37,6 +55,7 @@ const AiGeneratedForm: React.FC<Props> = ({ form, isEditMode }) => {
               name={item.name}
               placeholder={item.placeholder}
               required={!isEditMode && true}
+              onChange={handleChange}
             />
           </div>
         ))}
