@@ -21,11 +21,11 @@ const FormList : React.FC<Props> = ({form}) => {
       toast.error(data.message);
     }
     }
-  
+
 
     return (
       <div>
-        <Card>
+        <Card className="w-[350px]">
           <CardHeader>
             <CardTitle>{form.content.formTitle}</CardTitle>
             <CardDescription>

@@ -2,7 +2,10 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Eye } from "lucide-react";
 
-const Analytics = () => {
+type Props = {
+  noOfSubmissions: number;
+};
+const Analytics:React.FC<Props> = ({noOfSubmissions}) => {
   return (
     <div>
       <Card className="w-[350px] shadow-md shadow-yellow-600">
@@ -11,7 +14,7 @@ const Analytics = () => {
           <Eye />
         </CardHeader>
         <CardContent>
-          <div>0</div>
+          <div>{noOfSubmissions}</div>
           <p>Total submissions to your forms.</p>
         </CardContent>
       </Card>

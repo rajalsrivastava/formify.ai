@@ -10,24 +10,24 @@ const Edit = async ({ params }: { params: Promise<{ formId: string }> }) => {
     return <h1>No form id found for id {formId}</h1>;
   }
 
-  const form: any = await prisma.form.findUnique({
+  const form = await prisma.form.findUnique({
     where: {
       id: Number(formId),
     },
   });
 
-  console.log(form);
-
   return (
     <Card>
       <CardHeader>
         <CardTitle>
-          <h1 className="font-bold text-2xl text-center">{form?.content.formTitle}</h1>
-          <CardContent>
-            <AiGeneratedForm form={form} isEditMode={true}/>
-          </CardContent>
+          <h1 className="font-bold text-2xl text-center">
+            {form?.content?.formTitle}
+          </h1>
         </CardTitle>
       </CardHeader>
+      <CardContent>
+        <AiGeneratedForm form={form} isEditMode={true} />
+      </CardContent>
     </Card>
   );
 };

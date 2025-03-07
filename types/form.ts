@@ -1,11 +1,17 @@
+export type Fields={
+    name?:string;
+    label?:string;
+    placeholder?:string;
+}
+export type Content = {
+  formTitle: string;
+  formFields: Fields[];
+};
 export type Form = {
     id:number;
     ownerId:string;
     published:boolean;
-    content:{
-        formTitle:string;
-        formFields:object[];
-    };
+    content:Content;
     submission:number;
     shareUrl:string;
 }

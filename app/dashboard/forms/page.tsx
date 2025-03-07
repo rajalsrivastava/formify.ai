@@ -40,7 +40,7 @@ const MyForm = async () => {
         </Dialog>
       </section>
       <div className="grid grid-cols-3 gap-2">
-        {forms?.data?.map((form: Form, index: number) => (
+        {forms?.data?.map((form: any, index: number) => (
           <FormList key={index} form={form} />
         ))}
       </div>
