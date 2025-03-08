@@ -14,6 +14,7 @@ import {
 import { ChartSpline, ClipboardList } from "lucide-react";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
+import UpgradeButton from "./UpgradeButton";
 
 type MenuItems = {
   title: string;
@@ -62,6 +63,7 @@ const DashboardSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
+        <UpgradeButton/>
       </SidebarFooter>
     </Sidebar>
   );

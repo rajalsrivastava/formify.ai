@@ -7,7 +7,7 @@ export type PricingPlan = {
 export const pricingPlan: PricingPlan[] = [
   {
     level: "Free",
-    price: "$0/month",
+    price: "₹0/month",
     services: [
       "3 Free Credits",
       "Basic Supports",
@@ -17,7 +17,7 @@ export const pricingPlan: PricingPlan[] = [
   },
   {
     level: "Pro",
-    price: "$29/month",
+    price: "₹79/month",
     services: [
       "Unlimited Credits",
       "Basic Supports",
@@ -27,7 +27,7 @@ export const pricingPlan: PricingPlan[] = [
   },
   {
     level: "Enterprise",
-    price: "$70/month",
+    price: "₹149/month",
     services: [
       "Unlimited Credits",
       "Basic Supports",
