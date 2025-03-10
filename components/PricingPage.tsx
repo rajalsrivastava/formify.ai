@@ -67,6 +67,7 @@ const PricingPage: React.FC<Props> = ({ userId }) => {
           email: "user@example.com", // Replace with dynamic user data
           contact: "1234567890", // Replace with dynamic user data
         },
+        notes: { userId },
         theme: {
           color: "#3399cc", // Customize the theme color
         },
