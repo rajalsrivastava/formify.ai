@@ -6,3 +6,4 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
+export const MAX_FREE_FORM:number=3;

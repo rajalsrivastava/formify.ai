@@ -3,10 +3,11 @@ import React, { ChangeEvent, useActionState, useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useFormStatus } from "react-dom";
-import { Sparkles } from "lucide-react";
+import { Lock, Sparkles } from "lucide-react";
 import { generateForm } from "@/actions/generateForm";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { MAX_FREE_FORM } from "@/lib/utils";
 
 type InitialState = {
   message: string;
@@ -17,8 +18,15 @@ type InitialState = {
 const initialState: InitialState = {
   message: "",
   success: false,
+
 };
-const GenerateFormInput: React.FC<{ text?: string }> = ({ text }) => {
+
+type Props={
+  text?: string;
+totalForms?: number;
+isSubscribed?: boolean
+}
+const GenerateFormInput: React.FC<Props > = ({ text, totalForms, isSubscribed }) => {
   const [description, setDescription] = useState<string | undefined>("");
   const [state, formAction] = useActionState(generateForm, initialState);
   const router = useRouter();
@@ -53,7 +61,10 @@ const GenerateFormInput: React.FC<{ text?: string }> = ({ text }) => {
         placeholder="Write a prompt to generate form.."
         required
       />
-      <SubmitButton />
+      {
+        isSubscribed || totalForms! < MAX_FREE_FORM?<SubmitButton />:<Button disabled className="h-12"><Lock/>Upgrade Plan</Button>
+      }
+
     </form>
   );
 };

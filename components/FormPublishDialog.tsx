@@ -18,7 +18,7 @@ type Props = {
   onOpenChange: (open: boolean) => void;
 };
 
-const FormPublisDialog: React.FC<Props> = ({ formId, open, onOpenChange }) => {
+const FormPublishDialog: React.FC<Props> = ({ formId, open, onOpenChange }) => {
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
 
 
@@ -57,4 +57,4 @@ const FormPublisDialog: React.FC<Props> = ({ formId, open, onOpenChange }) => {
   );
 };
 
-export default FormPublisDialog;
+export default FormPublishDialog;

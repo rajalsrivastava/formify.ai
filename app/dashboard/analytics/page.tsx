@@ -5,11 +5,11 @@ import React from "react";
 const page = async () => {
   const data =await getFormStats();
 
-  console.log(data);
+
 
   return (
     <div>
-      <Analytics noOfSubmissions={0} />
+      <Analytics noOfSubmissions={data | 0} />
     </div>
   );
 };

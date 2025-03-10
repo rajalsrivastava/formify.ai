@@ -6,12 +6,14 @@ import { Edit2 } from "lucide-react"
 import { Form } from "@/types/form"
 import { deleteForm } from "@/actions/deleteForm"
 import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
 
 type Props = {
     form:Form
 }
 const FormList : React.FC<Props> = ({form}) => {
 
+  const router = useRouter();
   const deleteFormHandler =async (formId:number)=>{
     const data = await deleteForm(formId);
 
@@ -39,7 +41,7 @@ const FormList : React.FC<Props> = ({form}) => {
             </Link>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <Button className="cursor-pointer" variant="outline">
+            <Button className="cursor-pointer" variant="outline" onClick={()=>router.push(`forms/edit/${form.id}`)}>
               <Edit2 /> Edit
             </Button>
             <Button className="cursor-pointer" onClick={()=>deleteFormHandler(form.id)} variant="destructive">Delete</Button>

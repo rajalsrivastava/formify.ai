@@ -23,7 +23,12 @@ const suggestionBtnText: SuggestionText[] = [
   },
 ];
 
-const HeroSection = () => {
+type Props = {
+  totalForms: number;
+  isSubscribed:boolean;
+}
+
+const HeroSection : React.FC<Props> = ({totalForms, isSubscribed}) => {
   const [text, setText] = useState<string>("");
   return (
     <section>
@@ -40,7 +45,7 @@ const HeroSection = () => {
         </div>
       </div>
       {/* create input field */}
-      <GenerateFormInput text={text}/>
+      <GenerateFormInput  text={text} totalForms={totalForms} isSubscribed={isSubscribed}/>
       <div className="grid grid-cols-4 gap-3">
         {suggestionBtnText.map((item: SuggestionText, index: number) => (
           <Button onClick={() => setText(item.text)} key={index} className="rounded-full h-10 cursor-pointer" variant="outline">

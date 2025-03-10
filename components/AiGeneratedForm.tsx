@@ -4,7 +4,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { publishForm } from "@/actions/publishForm";
-import FormPublisDialog from "./FormPublisDialog";
+import FormPublishDialog from "./FormPublishDialog";
 import { Fields, Form } from "@/types/form";
 import toast from "react-hot-toast";
 import { submitForm } from "@/actions/submitForm";
@@ -61,7 +61,7 @@ const AiGeneratedForm: React.FC<Props> = ({ form, isEditMode }) => {
         ))}
         <Button type="submit">{isEditMode ? "Publish" : "Submit"}</Button>
       </form>
-      <FormPublisDialog
+      <FormPublishDialog
         formId={form.id}
         open={successDialogOpen}
         onOpenChange={setSuccessDialogOpen}
