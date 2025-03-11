@@ -1,27 +1,33 @@
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 export const createSubscription = async ({ userId }: { userId: string }) => {
-  const subscription = await prisma.subscription.create({
-    data: {
-      userId,
-      subscribed: true,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  });
-  return subscription;
+  try {
+    const subscription = await prisma.subscription.create({
+      data: {
+        userId,
+        subscribed: true,
+      },
+    });
+    return subscription;
+  } catch (error) {
+    console.error("Failed to create subscription:", error);
+    throw new Error("Failed to create subscription");
+  }
 };
 
-export const getUserSubscription= async (userId:string) => {
-    //fetch the subscription for the given user id
-    if(!userId){
-        throw new Error("not authenticated")
-    }
+export const getUserSubscription = async (userId: string) => {
+  if (!userId) {
+    throw new Error("Not authenticated");
+  }
+
+  try {
     const subscription = await prisma.subscription.findFirst({
-        where:{
-            userId:userId
-        },
+      where: { userId },
     });
 
-    return subscription?.subscribed;
-}
+    return subscription ? subscription.subscribed : false;
+  } catch (error) {
+    console.error("Error fetching subscription:", error);
+    throw new Error("Failed to fetch subscription");
+  }
+};

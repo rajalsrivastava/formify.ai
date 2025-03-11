@@ -27,7 +27,8 @@ totalForms?: number;
 isSubscribed?: boolean
 }
 const GenerateFormInput: React.FC<Props > = ({ text, totalForms, isSubscribed }) => {
-  const [description, setDescription] = useState<string | undefined>("");
+  const [description, setDescription] = useState<string>(text || "");
+
   const [state, formAction] = useActionState(generateForm, initialState);
   const router = useRouter();
 
@@ -36,12 +37,11 @@ const GenerateFormInput: React.FC<Props > = ({ text, totalForms, isSubscribed })
   };
 
   useEffect(() => {
-    setDescription(text);
+    setDescription(text || "");
   }, [text]);
 
   useEffect(() => {
     if (state.success) {
-      console.log("response -> ", state.data);
 
       toast(state.message);
       router.push(`/dashboard/forms/edit/${state.data.id}`);
@@ -61,10 +61,18 @@ const GenerateFormInput: React.FC<Props > = ({ text, totalForms, isSubscribed })
         placeholder="Write a prompt to generate form.."
         required
       />
-      {
-        isSubscribed || totalForms! < MAX_FREE_FORM?<SubmitButton />:<Button disabled className="h-12"><Lock/>Upgrade Plan</Button>
-      }
-
+      {isSubscribed || totalForms! < MAX_FREE_FORM ? (
+        <SubmitButton />
+      ) : (
+        <Button
+          disabled={false} // Make it clickable
+          onClick={() => (window.location.href = "/dashboard/upgrade")}
+          className="h-12 cursor-pointer"
+        >
+          <Lock />
+          Upgrade Plan
+        </Button>
+      )}
     </form>
   );
 };

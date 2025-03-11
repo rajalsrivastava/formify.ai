@@ -14,7 +14,7 @@ const Footer = () => {
       </a>
       <a
         className="flex items-center gap-1 hover:underline hover:underline-offset-4"
-        href="https://github.com/yourgithubrepo"
+        href="https://github.com/rajalsrivastava/formify.ai"
         target="_blank"
         rel="noopener noreferrer"
       >

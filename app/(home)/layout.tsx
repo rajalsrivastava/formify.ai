@@ -17,7 +17,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
               {" "}
               <Button variant={"link"} className="cursor-pointer">Dashboard</Button>
             </Link>
-            <UserButton />
+            <UserButton afterSignOutUrl="/sign-in"/>
             <DarkMode />
           </div>
         </nav>
