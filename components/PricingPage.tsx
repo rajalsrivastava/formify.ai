@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import { PricingPlan, pricingPlan } from "@/lib/pricingPlan";
+import { PricingPlan, pricingPlan } from "@/lib/pricingPlan_temp";
 import { Badge } from "./ui/badge";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
