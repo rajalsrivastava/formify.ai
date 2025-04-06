@@ -7,3 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 
 export const MAX_FREE_FORM:number=3;
+
+const isDev=process.env.NODE_ENV==="development";
+
+export const ORIGIN_URL=isDev?"http://localhost:3000":"https://formify-rajal.vercel.app";
